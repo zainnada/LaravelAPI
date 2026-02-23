@@ -12,6 +12,7 @@ Route::post('/login',[AuthController::class,'login']);
 
 //Route::get('/user', [\App\Http\Controllers\Api\V1\UsersController::class,'index'])->middleware('auth:sanctum');
 Route::apiResource(
-    'users',
-    \App\Http\Controllers\Api\V1\UsersController::class
+    'authors',
+    \App\Http\Controllers\Api\V1\AuthorsController::class
 )->middleware('auth:sanctum');
+Route::middleware('auth:sanctum')->apiResource('authors.tickets',\App\Http\Controllers\Api\V1\AuthorTicketsController::class);
